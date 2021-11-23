@@ -1,18 +1,6 @@
-[package]
-name = "lmms-rs"
-version = "0.1.0"
-edition = "2021"
-rust-version = "1.56.0"
-license = "GPL-2.0-or-later"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
-[features]
-default = ["gui_qt"]
-gui_qt = ["qt_core", "qt_gui", "qt_qml", "qt_widgets"]
-
-[dependencies]
-qt_core = { version="0.5.0", optional=true }
-qt_gui = { version="0.5.0", optional=true }
-qt_qml = { version="0.5.0", optional=true }
-qt_widgets = { version="0.5.0", optional=true }
+[workspace]
+resolver = "2"
+members = [
+    "core",
+    "gui",
+]
