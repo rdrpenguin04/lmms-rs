@@ -1,6 +1,74 @@
+export struct TrackPattern := {
+    notes: [{start: float, end: float, note: float}],
+    length: float,
+}
+
+export struct Track := {
+    patterns: [{pos: float, pattern: TrackPattern}],
+}
+
+global Constants := {
+    property<string> version: "1.3.0";
+}
+
+import { Button, ListView, TabWidget } from "sixtyfps_widgets.60";
+
+PatternEditor := VerticalLayout {
+    callback play;
+    callback stop;
+    property<[Track]> tracks;
+    HorizontalLayout {
+        Button {
+            text: "PLAY";
+            clicked => {
+                play();
+            }
+        }
+        Button {
+            text: "STOP";
+            clicked => {
+                stop();
+            }
+        }
+    }
+    ListView {
+        for track in tracks: Rectangle {
+            height: 40px;
+            background: black;
+            for pattern in track.patterns: Rectangle {
+                x: pattern.pos * 40px;
+                width: pattern.pattern.length * 40px;
+                background: green;
+            }
+        }
+    }
+}
+
+PianoRoll := HorizontalLayout {}
+
 MainWindow := Window {
-    Text {
-        text: "hello world";
-        color: green;
+    callback play;
+    callback stop;
+    property<[Track]> tracks;
+
+    title: "LMMS-rs v" + Constants.version;
+
+    TabWidget {
+        Tab {
+            title: "Pattern Editor";
+            pattern_editor := PatternEditor {
+                play => {
+                    root.play();
+                }
+                stop => {
+                    root.stop();
+                }
+                tracks: root.tracks;
+            }
+        }
+        Tab {
+            title: "Piano Roll";
+            piano_roll := PianoRoll {}
+        }
     }
 }

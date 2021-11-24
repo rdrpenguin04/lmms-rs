@@ -13,7 +13,7 @@ default = ["gui_sixtyfps"]
 gui_sixtyfps = ["sixtyfps", "sixtyfps-build"]
 
 [dependencies]
-sixtyfps = {version = "0.1.4", optional = true}
+sixtyfps = {version = "0.1.5", optional = true}
 
 [build-dependencies]
-sixtyfps-build = {version = "0.1.4", optional = true}
+sixtyfps-build = {version = "0.1.5", optional = true}

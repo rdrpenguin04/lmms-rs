@@ -254,9 +254,9 @@ checksum = "3d7b894f5411737b7867f4827955924d7c254fc9f4d91a6aad6b097804b1018b"
 
 [[package]]
 name = "const-field-offset"
-version = "0.1.1"
+version = "0.1.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ba27bd1ad8321d7f74529b437aeb226e2a42cb76889ff7c228166462780571fb"
+checksum = "4d6d40fc2c8e0109d6e423fb4c8b6a373c56b4576ca2e0d3e216a7796861fbd0"
 dependencies = [
  "const-field-offset-macro",
  "field-offset",
@@ -264,9 +264,9 @@ dependencies = [
 
 [[package]]
 name = "const-field-offset-macro"
-version = "0.1.1"
+version = "0.1.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4bf15c922cf1f0cee8dfab3ca8eceefdacfb003709f4c4442062e71167c5e6a9"
+checksum = "a7f7f71b9a791f0a0fcadab1293bbac19b6872756ca78b630c3d89f6aa93daff"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -933,6 +933,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "gif"
+version = "0.11.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c3a7187e78088aead22ceedeee99779455b23fc231fe13ec443f99bb71694e5b"
+dependencies = [
+ "color_quant",
+ "weezl",
+]
+
+[[package]]
 name = "gl_generator"
 version = "0.14.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1081,11 +1091,14 @@ dependencies = [
  "bytemuck",
  "byteorder",
  "color_quant",
+ "gif",
  "jpeg-decoder",
  "num-iter",
  "num-rational",
  "num-traits",
  "png 0.16.8",
+ "scoped_threadpool",
+ "tiff",
 ]
 
 [[package]]
@@ -1126,6 +1139,9 @@ name = "jpeg-decoder"
 version = "0.1.22"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "229d53d58899083193af11e15917b5640cd40b29ff475a1fe4ef725deb02d0f2"
+dependencies = [
+ "rayon",
+]
 
 [[package]]
 name = "js-sys"
@@ -1458,6 +1474,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "num_cpus"
+version = "1.13.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "05499f3756671c15885fee9034446956fff3f243d6077b91e5767df161f766b3"
+dependencies = [
+ "hermit-abi",
+ "libc",
+]
+
+[[package]]
 name = "num_enum"
 version = "0.5.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1545,6 +1571,15 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn",
+]
+
+[[package]]
+name = "owning_ref"
+version = "0.4.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6ff55baddef9e4ad00f88b6c743a2a8062d4c6ade126c2a528644b8e444d52ce"
+dependencies = [
+ "stable_deref_trait",
 ]
 
 [[package]]
@@ -1746,6 +1781,31 @@ dependencies = [
 ]
 
 [[package]]
+name = "rayon"
+version = "1.5.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c06aca804d41dbc8ba42dfd964f0d01334eceb64314b9ecf7c5fad5188a06d90"
+dependencies = [
+ "autocfg",
+ "crossbeam-deque",
+ "either",
+ "rayon-core",
+]
+
+[[package]]
+name = "rayon-core"
+version = "1.9.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d78120e2c850279833f1dd3582f730c4ab53ed95aeaaaa862a2a5c71b1656d8e"
+dependencies = [
+ "crossbeam-channel",
+ "crossbeam-deque",
+ "crossbeam-utils",
+ "lazy_static",
+ "num_cpus",
+]
+
+[[package]]
 name = "rctree"
 version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1798,6 +1858,7 @@ dependencies = [
  "pico-args",
  "png 0.17.2",
  "rgb",
+ "svgfilters",
  "tiny-skia",
  "usvg",
 ]
@@ -1849,6 +1910,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "rustversion"
+version = "1.0.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "61b3909d758bb75c79f23d4736fac9433868679d3ad2ea7a61e3c25cfda9a088"
+
+[[package]]
 name = "rustybuzz"
 version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1887,6 +1954,12 @@ name = "scoped-tls-hkt"
 version = "0.1.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c2e9d7eaddb227e8fbaaa71136ae0e1e913ca159b86c7da82f3e8f0044ad3a63"
+
+[[package]]
+name = "scoped_threadpool"
+version = "0.1.9"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1d51f5df5af43ab3f1360b429fa5e0152ac5ce8c0bd6485cae490332e96846a8"
 
 [[package]]
 name = "scopeguard"
@@ -1987,9 +2060,9 @@ checksum = "533494a8f9b724d33625ab53c6c4800f7cc445895924a8ef649222dcb76e938b"
 
 [[package]]
 name = "sixtyfps"
-version = "0.1.4"
+version = "0.1.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8e2784897f8b507fceb3c0decd003f6bbcd663d82afa66e14070963d95ec4ca0"
+checksum = "16044e131d79a8eadfd730907a26e79738290272bea1d753ccb6904af30c73c0"
 dependencies = [
  "const-field-offset",
  "once_cell",
@@ -2002,9 +2075,9 @@ dependencies = [
 
 [[package]]
 name = "sixtyfps-build"
-version = "0.1.4"
+version = "0.1.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e64625cc4616f04e020ef13e93cc1430bd47993d867eeb5034c95203ffabed6f"
+checksum = "ec00050649d8491cc6cfa31e3766035cdc547ffc0adff5347263383d0d2cc4f1"
 dependencies = [
  "sixtyfps-compilerlib",
  "spin_on",
@@ -2013,9 +2086,9 @@ dependencies = [
 
 [[package]]
 name = "sixtyfps-compilerlib"
-version = "0.1.4"
+version = "0.1.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "dadc144b8c27e46fd82f1277bdd5be0610ced5beac67654ecddf7598ef327a32"
+checksum = "480d9138393ed5176a371511b91d19e3fd8aa3b1ad385f1888e43c73373bad44"
 dependencies = [
  "by_address",
  "codemap",
@@ -2023,6 +2096,7 @@ dependencies = [
  "css-color-parser2",
  "derive_more",
  "dunce",
+ "image",
  "itertools",
  "linked_hash_set",
  "lyon_path",
@@ -2031,17 +2105,20 @@ dependencies = [
  "once_cell",
  "proc-macro2",
  "quote",
+ "resvg",
  "rowan",
  "smol_str",
  "thiserror",
+ "tiny-skia",
  "url",
+ "usvg",
 ]
 
 [[package]]
 name = "sixtyfps-corelib"
-version = "0.1.4"
+version = "0.1.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5af745b87653c29aa00b7664b7dd429a22af634e37cb3cb50b4ea464a0c5f7bb"
+checksum = "6184a482f8fe260412c15ea45c8be5417602e1efe9d09d28444130fc18ebfdc8"
 dependencies = [
  "auto_enums",
  "cfg-if 1.0.0",
@@ -2053,7 +2130,6 @@ dependencies = [
  "lyon_geom",
  "lyon_path",
  "once_cell",
- "pathfinder_geometry",
  "pin-weak",
  "rgb",
  "scoped-tls-hkt",
@@ -2073,9 +2149,9 @@ dependencies = [
 
 [[package]]
 name = "sixtyfps-corelib-macros"
-version = "0.1.4"
+version = "0.1.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7bdd98c3ef78e8c8fd4341799651ee484030a67636701b0790a738850df1c9d9"
+checksum = "675afa1f9160c38771f2248d2d3ec78c2debab52e86157aa1fb76041179949d0"
 dependencies = [
  "quote",
  "syn",
@@ -2083,9 +2159,9 @@ dependencies = [
 
 [[package]]
 name = "sixtyfps-macros"
-version = "0.1.4"
+version = "0.1.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ab982551351b1158602a40ef096db3f81251259f6e44959ab8f099517448d00f"
+checksum = "55664894492d0fbcc3640f3226c1e694008787563da6005c081b81122f713ff6"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -2095,9 +2171,9 @@ dependencies = [
 
 [[package]]
 name = "sixtyfps-rendering-backend-default"
-version = "0.1.4"
+version = "0.1.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6b126dacfeb34dc2ad4c4b474d4ff279ef7cb6ace24a8fa979c41059031e243d"
+checksum = "7e16487548f4b140bb2bdc728ae14303e43093b24decf64789efb2fb605653e0"
 dependencies = [
  "cfg-if 1.0.0",
  "once_cell",
@@ -2108,9 +2184,9 @@ dependencies = [
 
 [[package]]
 name = "sixtyfps-rendering-backend-gl"
-version = "0.1.4"
+version = "0.1.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1643bee07a4da232fec6e35fbd04672c6beb15b534614de76912d1e1ebad3f1a"
+checksum = "7391932b1097cbe0f8658dbbbd73fab658390c19433a199c826eea966e3b64da"
 dependencies = [
  "by_address",
  "cfg-if 1.0.0",
@@ -2149,9 +2225,9 @@ dependencies = [
 
 [[package]]
 name = "sixtyfps-rendering-backend-qt"
-version = "0.1.4"
+version = "0.1.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b54880b99847faaff2bbd8212aa18914d2def94afc1d56533c581551b7f4b72b"
+checksum = "14bf8f2e9bd9726fd4f9a5188645f3e2cbb22c52fced7b8f9f81ba4ad3d97869"
 dependencies = [
  "const-field-offset",
  "cpp",
@@ -2225,20 +2301,31 @@ checksum = "6446ced80d6c486436db5c078dde11a9f73d42b57fb273121e160b84f63d894c"
 
 [[package]]
 name = "strum"
-version = "0.22.0"
+version = "0.23.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f7ac893c7d471c8a21f31cfe213ec4f6d9afeed25537c772e08ef3f005f8729e"
+checksum = "cae14b91c7d11c9a851d3fbc80a963198998c2a64eec840477fa92d8ce9b70bb"
 
 [[package]]
 name = "strum_macros"
-version = "0.22.0"
+version = "0.23.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "339f799d8b549e3744c7ac7feb216383e4005d94bdb22561b3ab8f3b808ae9fb"
+checksum = "5bb0dc7ee9c15cea6199cde9a127fa16a4c5819af85395457ad72d68edc85a38"
 dependencies = [
  "heck",
  "proc-macro2",
  "quote",
+ "rustversion",
  "syn",
+]
+
+[[package]]
+name = "svgfilters"
+version = "0.4.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "639abcebc15fdc2df179f37d6f5463d660c1c79cd552c12343a4600827a04bce"
+dependencies = [
+ "float-cmp 0.9.0",
+ "rgb",
 ]
 
 [[package]]
@@ -2304,6 +2391,17 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn",
+]
+
+[[package]]
+name = "tiff"
+version = "0.6.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "9a53f4706d65497df0c4349241deddf35f84cee19c87ed86ea8ca590f4464437"
+dependencies = [
+ "jpeg-decoder",
+ "miniz_oxide 0.4.4",
+ "weezl",
 ]
 
 [[package]]
@@ -2460,6 +2558,7 @@ dependencies = [
  "unicode-bidi",
  "unicode-script",
  "unicode-vo",
+ "xmlwriter",
 ]
 
 [[package]]
@@ -2470,19 +2569,20 @@ checksum = "5fecdca9a5291cc2b8dcf7dc02453fee791a280f3743cb0905f8822ae463b3fe"
 
 [[package]]
 name = "vtable"
-version = "0.1.3"
+version = "0.1.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "46332604883121cdf7346cc3e1bf533234773118b72ef1598cbf0dc2e379d203"
+checksum = "000f9059297e4df6393de5a980399b63ce8fd9d1a62aad3d5c30ba37f49e9d4a"
 dependencies = [
  "const-field-offset",
+ "owning_ref",
  "vtable-macro",
 ]
 
 [[package]]
 name = "vtable-macro"
-version = "0.1.3"
+version = "0.1.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d5e3b722e4a33410cf8e876b28c09be85e632888ced1b8b4159910427d24a087"
+checksum = "1838b1e3b1d18f8ebfe94a60353ee8d946710dac52b697018df9d2295e904eea"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -2575,6 +2675,12 @@ dependencies = [
  "js-sys",
  "wasm-bindgen",
 ]
+
+[[package]]
+name = "weezl"
+version = "0.1.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d8b77fdfd5a253be4ab714e4ffa3c49caf146b4de743e97510c0656cf90f1e8e"
 
 [[package]]
 name = "winapi"
@@ -2690,3 +2796,9 @@ name = "xmlparser"
 version = "0.13.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "114ba2b24d2167ef6d67d7d04c8cc86522b87f490025f39f0303b7db5bf5e3d8"
+
+[[package]]
+name = "xmlwriter"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ec7a2a501ed189703dba8b08142f057e887dfc4b2cc4db2d343ac6376ba3e0b9"

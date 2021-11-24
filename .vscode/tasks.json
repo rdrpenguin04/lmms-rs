@@ -1,0 +1,41 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "cargo",
+            "subcommand": "build",
+            "problemMatcher": [
+                "$rustc"
+            ],
+            "group": "build",
+            "label": "Rust: cargo build - lmms-rs"
+        },
+        {
+            "type": "cargo",
+            "subcommand": "clean",
+            "problemMatcher": [
+                "$rustc"
+            ],
+            "group": "build",
+            "label": "Rust: cargo clean - lmms-rs"
+        },
+        {
+            "type": "cargo",
+            "subcommand": "run",
+            "problemMatcher": [
+                "$rustc"
+            ],
+            "group": "build",
+            "label": "Rust: cargo run - lmms-rs"
+        },
+        {
+            "type": "cargo",
+            "subcommand": "check",
+            "problemMatcher": [
+                "$rustc"
+            ],
+            "group": "build",
+            "label": "Rust: cargo check - lmms-rs"
+        }
+    ]
+}
