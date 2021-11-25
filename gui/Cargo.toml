@@ -13,6 +13,7 @@ default = ["gui_sixtyfps"]
 gui_sixtyfps = ["sixtyfps", "sixtyfps-build"]
 
 [dependencies]
+lmms_core = {path = "../core"}
 sixtyfps = {version = "0.1.5", optional = true}
 
 [build-dependencies]

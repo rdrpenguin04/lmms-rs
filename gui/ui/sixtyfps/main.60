@@ -17,6 +17,7 @@ PatternEditor := VerticalLayout {
     callback play;
     callback stop;
     property<[Track]> tracks;
+    padding: 0px;
     HorizontalLayout {
         Button {
             text: "PLAY";
@@ -31,14 +32,20 @@ PatternEditor := VerticalLayout {
             }
         }
     }
-    ListView {
-        for track in tracks: Rectangle {
-            height: 40px;
-            background: black;
-            for pattern in track.patterns: Rectangle {
-                x: pattern.pos * 40px;
-                width: pattern.pattern.length * 40px;
-                background: green;
+    Rectangle {
+        background: #262b30;
+        ListView {
+            min-height: tracks.length * 40px;
+            for track in tracks: Rectangle {
+                height: 40px;
+                background: black;
+                for pattern in track.patterns: Rectangle {
+                    x: pattern.pos * 40px;
+                    width: pattern.pattern.length * 40px;
+                    background: #21A14F;
+                    border-width: 1px;
+                    border-color: #21A14F;
+                }
             }
         }
     }
@@ -47,28 +54,43 @@ PatternEditor := VerticalLayout {
 PianoRoll := HorizontalLayout {}
 
 MainWindow := Window {
+    callback open;
     callback play;
     callback stop;
     property<[Track]> tracks;
 
-    title: "LMMS-rs v" + Constants.version;
+    min-width: 1138px;
+    min-height: 640px;
 
-    TabWidget {
-        Tab {
-            title: "Pattern Editor";
-            pattern_editor := PatternEditor {
-                play => {
-                    root.play();
+    title: "LMMS-rs " + Constants.version;
+
+    VerticalLayout {
+        HorizontalLayout {
+            Button {
+                text: "OPEN";
+                clicked => {
+                    open();
                 }
-                stop => {
-                    root.stop();
-                }
-                tracks: root.tracks;
             }
         }
-        Tab {
-            title: "Piano Roll";
-            piano_roll := PianoRoll {}
+
+        TabWidget {
+            Tab {
+                title: "Pattern Editor";
+                pattern_editor := PatternEditor {
+                    play => {
+                        root.play();
+                    }
+                    stop => {
+                        root.stop();
+                    }
+                    tracks: root.tracks;
+                }
+            }
+            Tab {
+                title: "Piano Roll";
+                piano_roll := PianoRoll {}
+            }
         }
     }
 }

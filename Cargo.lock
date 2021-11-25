@@ -1211,15 +1211,19 @@ dependencies = [
 ]
 
 [[package]]
-name = "lmms-core"
-version = "1.3.0"
-
-[[package]]
 name = "lmms-rs"
 version = "1.3.0"
 dependencies = [
+ "lmms_core",
  "sixtyfps",
  "sixtyfps-build",
+]
+
+[[package]]
+name = "lmms_core"
+version = "1.3.0"
+dependencies = [
+ "flate2",
 ]
 
 [[package]]
